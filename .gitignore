@@ -1,0 +1,4 @@
+/auto-save-list
+/elpa/archives/*/archive-contents
+*.elc
+/session.*
