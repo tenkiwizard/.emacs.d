@@ -39,7 +39,8 @@
 ;; カーソルの位置が何行目かを表示する
 (line-number-mode t)
 
-;(global-linum-mode t)
+;; バッファ左に行番号を表示
+(global-linum-mode t)
 ;; 行番号のフォーマット
 (set-face-attribute 'linum nil :foreground "gray" :height 0.8)
 (setq linum-format "%4d ")

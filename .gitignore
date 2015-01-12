@@ -1,4 +1,5 @@
 /auto-save-list
+/ac-comphist.dat
 /elpa/archives/*/archive-contents
 *.elc
 /session.*
