@@ -6,7 +6,7 @@
 
 ;; Menuを隠す
 (custom-set-variables
- '(display-time-mode t)
+ '(display-time-mode nil)
  '(tool-bar-mode nil)
  '(menu-bar-mode nil)
  '(transient-mark-mode t))
