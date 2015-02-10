@@ -1,7 +1,8 @@
 (source gnu)
-(source melpa)
 (source marmalade)
+(source melpa)
 
+(depends-on "ag")
 (depends-on "auto-compile")
 (depends-on "bind-key")
 (depends-on "cask")
@@ -34,5 +35,7 @@
 (depends-on "smex")
 (depends-on "use-package")
 (depends-on "web-mode")
+(depends-on "wgrep")
+(depends-on "wgrep-ag")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")

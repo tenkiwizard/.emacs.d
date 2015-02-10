@@ -1,30 +1,24 @@
-;; フォルダ移動時にバッファを生成しない
-(defun dired-my-advertised-find-file ()
-  (interactive)
-  (let ((kill-target (current-buffer))
-        (check-file (dired-get-filename)))
-    (funcall 'dired-advertised-find-file)
-    (if (file-directory-p check-file)
-        (kill-buffer kill-target))))
+(add-hook 'dired-load-hook
+          '(lambda ()
+             ;; ディレクトリを再帰的にコピー可能にする
+             (setq dired-recursive-copies 'always)
+             ;; lsのオプション 「l」(小文字のエル)は必須
+             (setq dired-listing-switches "-FlhtA")
+             ;; find-dired/find-grep-diredで、条件に合ったファイルをリストする形式
+             (setq find-ls-option '("-print0 | xargs -0 ls -Flhatd"))
+             ;; 無効コマンドdired-find-alternate-fileを有効にする
+             (put 'dired-find-alternate-file 'disabled nil)))
 
-(defun dired-my-up-directory (&optional other-window)
-  "Run dired on parent directory of current directory.
-Find the parent directory either in this buffer or another buffer.
-Creates a buffer if necessary."
-  (interactive "P")
-  (let* ((dir (dired-current-directory))
-         (up (file-name-directory (directory-file-name dir))))
-    (or (dired-goto-file (directory-file-name dir))
-        ;; Only try dired-goto-subdir if buffer has more than one dir.
-        (and (cdr dired-subdir-alist)
-             (dired-goto-subdir up))
-        (progn
-          (if other-window
-              (dired-other-window up)
-            (progn
-              (kill-buffer (current-buffer))
-              (dired up))
-          (dired-goto-file dir))))))
+;; ファイル・ディレクトリ名のリストを編集することで、まとめてリネーム可能にする
+(require 'wdired)
+;; wdiredモードに入るキー(下の例では「r」)
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+;; 新規バッファを作らずにディレクトリを開く(デフォルトは「a」)
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+;; 「a」を押したときに新規バッファを作って開くようにする
+(define-key dired-mode-map "a" 'dired-advertised-find-file)
 
-(define-key dired-mode-map "\C-m" 'dired-my-advertised-find-file)
-(define-key dired-mode-map "^" 'dired-my-up-directory)
+
+
+;; (define-key dired-mode-map "\C-m" 'dired-my-advertised-find-file)
+;; (define-key dired-mode-map "^" 'dired-my-up-directory)
