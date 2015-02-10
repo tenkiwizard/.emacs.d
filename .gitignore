@@ -1,5 +1,6 @@
 /auto-save-list
 /ac-comphist.dat
+/.cask
 /eshell
 /elpa/archives/*/archive-contents
 *.elc
