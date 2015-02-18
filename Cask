@@ -2,8 +2,8 @@
 (source marmalade)
 (source melpa)
 
-(depends-on "ag")
 (depends-on "auto-compile")
+(depends-on "auto-complete")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "dash")
@@ -24,6 +24,7 @@
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
 (depends-on "pallet")
+(depends-on "php-mode")
 (depends-on "popup")
 (depends-on "popwin")
 (depends-on "powerline")
