@@ -5,3 +5,10 @@
 /elpa/archives/*/archive-contents
 *.elc
 /session.*
+/site-lisp/*
+/elpa/*
+/theme
+/tramp
+/url
+
+/kkcrc
