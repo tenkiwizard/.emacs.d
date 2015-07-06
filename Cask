@@ -24,6 +24,7 @@
 (depends-on "let-alist")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "migemo")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
 (depends-on "open-junk-file")
