@@ -16,6 +16,8 @@
 (depends-on "f")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
+(depends-on "flymake-haml")
+(depends-on "haml-mode")
 (depends-on "hc-zenburn-theme")
 (depends-on "highlight-symbol")
 (depends-on "htmlize")
