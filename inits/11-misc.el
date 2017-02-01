@@ -46,3 +46,5 @@
 (global-set-key "\C-x#" '(lambda ()
                            (interactive)
                            (split-window-horizontally-n 3)))
+
+(toggle-frame-fullscreen)
